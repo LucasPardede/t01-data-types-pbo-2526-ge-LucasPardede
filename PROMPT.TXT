@@ -162,7 +162,7 @@ Contoh Output
 
 
 
-import java.util.*;
+2. import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -170,18 +170,16 @@ public class Main {
         // TODO: implement solution
     }
 }
-
-
 DI BAGIAN TODO TAROK CODE NYA
 
 
 
 
-CARA MENJALANKAN PROGRAM JAVA
+3. CARA MENJALANKAN PROGRAM JAVA
 
 
 
-maksudku apa yang di ketik di command prompt
+4. maksudku apa yang di ketik di command prompt
 
 
 
@@ -202,13 +200,13 @@ C:\Users\ASUS\OneDrive\문서\GitHub\t01-data-types-pbo-2526-ge-LucasPardede>
 
 
 
-2. apa yang kuketik biar jalan programnya
+5. apa yang kuketik biar jalan programnya
 
 
 
 
 
-C:\Users\ASUS\OneDrive\문서\GitHub\t01-data-types-pbo-2526-ge-LucasPardede\src>javac Main.java
+6. C:\Users\ASUS\OneDrive\문서\GitHub\t01-data-types-pbo-2526-ge-LucasPardede\src>javac Main.java
 Main.java:72: error: unmappable character (0x90) for encoding windows-1252
         sc.close(); // Γ¡? TAMBAHKAN INI
                          ^
@@ -220,15 +218,11 @@ C:\Users\ASUS\OneDrive\문서\GitHub\t01-data-types-pbo-2526-ge-LucasPardede\src
 
 
 
-
-Contoh Input
+7. Contoh Input
 Soal2 1234567.89 0.11
 
 Contoh Output
 0.015625
-
-
-
 outputnya pas ku jalankan malah jadi 0.000000 ga sesuai yang di minta soal
 
 
@@ -399,16 +393,13 @@ public class Main {
 
 
 
-3. masih salah outputnya
+8. masih salah outputnya
 
 Contoh Input
 Soal2 1234567.89 0.11
 
 Contoh Output
 0.015625
-
-
-
 
 
 Soal 2 — Float vs Double Precision Trap!
@@ -441,8 +432,7 @@ Contoh Output
 
 
 
-
-output contoh yang ke 2 ga pas
+9. output contoh yang ke 2 ga pas
 
 // Source code is decompiled from a .class file using FernFlower decompiler (from Intellij IDEA).
 import java.io.PrintStream;
@@ -609,7 +599,7 @@ public class Main {
 
 
 
-4. C:\Users\ASUS\OneDrive\문서\GitHub\t01-data-types-pbo-2526-ge-LucasPardede\src>javac src/*.java -d bin
+10. C:\Users\ASUS\OneDrive\문서\GitHub\t01-data-types-pbo-2526-ge-LucasPardede\src>javac src/*.java -d bin
 Exception in thread "main" java.nio.file.InvalidPathException: Illegal char <*> at index 4: src/*.java
         at java.base/sun.nio.fs.WindowsPathParser.normalize(WindowsPathParser.java:182)
         at java.base/sun.nio.fs.WindowsPathParser.parse(WindowsPathParser.java:153)
@@ -632,4 +622,4 @@ Exception in thread "main" java.nio.file.InvalidPathException: Illegal char <*> 
 
 
 
-      5.  kekmana biar main class nya masuk ke bin
+11. kekmana biar main class nya masuk ke bin
