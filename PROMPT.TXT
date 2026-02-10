@@ -1,0 +1,635 @@
+1. BUATKAN CODE .JAVA DARI SOAL SOAL BERIKUT
+
+Soal 1 — Integer Overflow Detection! 
+Deskripsi
+
+Baca dua bilangan bulat bertipe int.
+Program harus menjumlahkan kedua bilangan tersebut.
+
+Jika terjadi integer overflow, cetak:
+
+OVERFLOW
+
+
+Jika tidak terjadi overflow, cetak hasil penjumlahan.
+
+⚠️ DILARANG menggunakan long, BigInteger, atau try-catch untuk mendeteksi overflow.
+
+Input:
+Soal1 a b
+
+Output
+hasil penjumlahan
+
+Contoh Input:
+Soal1 2147483647 1
+
+Contoh Output:
+OVERFLOW
+
+
+Contoh Input 2:
+Soal1 1000000000 1000000000
+
+Contoh Output 2:
+2000000000
+
+Soal 2 — Float vs Double Precision Trap!
+Deskripsi
+
+Baca dua bilangan desimal.
+
+Jumlahkan keduanya menggunakan float
+
+Jumlahkan keduanya menggunakan double
+
+Hitung selisih absolut dari kedua hasil tersebut
+
+Output harus ditampilkan dengan 6 digit di belakang koma.
+
+Input
+Soal2 x y
+
+Contoh Input
+Soal2 0.1 0.2
+
+Contoh Output
+0.000000
+
+Contoh Input
+Soal2 1234567.89 0.11
+
+Contoh Output
+0.015625
+
+Soal 3 — Primitive vs Wrapper Comparison!
+Deskripsi
+
+Baca satu bilangan bulat N.
+
+Lakukan langkah berikut:
+
+Simpan N ke dalam objek Integer a
+
+Salin nilai a ke Integer b
+
+Tambahkan 1 ke a
+
+Bandingkan a dan b menggunakan:
+
+operator ==
+
+method equals()
+
+Input
+Soal3 N
+
+Contoh Input
+Soal3 127
+
+Contoh Output
+==: false
+equals: false
+
+Contoh Input
+Soal3 128
+
+Contoh Output
+==: false
+equals: false
+
+Soal 4 — String Immutability & Reference!
+Deskripsi
+
+Baca satu string S.
+
+Lakukan langkah berikut:
+
+Buat String a = S
+
+Buat String b = new String(S)
+
+Gabungkan string "X" ke a
+
+Bandingkan a dan b menggunakan:
+
+operator ==
+
+method equals()
+
+Input
+Soal4 S
+
+Contoh Input
+Soal4 hello
+
+Contoh Output
+==: false
+equals: false
+
+Soal 5 — Parsing & Type Safety!
+Deskripsi
+
+Baca satu bilangan bulat, satu bilangan desimal, dan satu boolean.
+
+Lakukan langkah berikut:
+
+Parse seluruh input ke tipe data yang sesuai
+
+Hitung:
+
+integer × double
+
+
+Jika nilai boolean adalah false, hasil dikali -1
+
+Cetak hasil dengan 2 digit di belakang koma
+
+⚠️ DILARANG melakukan casting manual antar tipe.
+
+Input
+Soal5 integer double boolean
+
+Contoh Input
+Soal5 10 2.5 false
+
+Contoh Output
+-25.00
+
+
+
+
+
+
+
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        // TODO: implement solution
+    }
+}
+
+
+DI BAGIAN TODO TAROK CODE NYA
+
+
+
+
+CARA MENJALANKAN PROGRAM JAVA
+
+
+
+maksudku apa yang di ketik di command prompt
+
+
+
+
+C:\Users\ASUS\OneDrive\문서\GitHub\t01-data-types-pbo-2526-ge-LucasPardede>java Main
+Error: Could not find or load main class Main
+Caused by: java.lang.ClassNotFoundException: Main
+
+C:\Users\ASUS\OneDrive\문서\GitHub\t01-data-types-pbo-2526-ge-LucasPardede>Soal1 2147483647 1
+'Soal1' is not recognized as an internal or external command,
+operable program or batch file.
+
+C:\Users\ASUS\OneDrive\문서\GitHub\t01-data-types-pbo-2526-ge-LucasPardede>java main
+Error: Could not find or load main class main
+Caused by: java.lang.ClassNotFoundException: main
+
+C:\Users\ASUS\OneDrive\문서\GitHub\t01-data-types-pbo-2526-ge-LucasPardede>
+
+
+
+2. apa yang kuketik biar jalan programnya
+
+
+
+
+
+C:\Users\ASUS\OneDrive\문서\GitHub\t01-data-types-pbo-2526-ge-LucasPardede\src>javac Main.java
+Main.java:72: error: unmappable character (0x90) for encoding windows-1252
+        sc.close(); // Γ¡? TAMBAHKAN INI
+                         ^
+1 error
+
+C:\Users\ASUS\OneDrive\문서\GitHub\t01-data-types-pbo-2526-ge-LucasPardede\src>
+
+
+
+
+
+
+Contoh Input
+Soal2 1234567.89 0.11
+
+Contoh Output
+0.015625
+
+
+
+outputnya pas ku jalankan malah jadi 0.000000 ga sesuai yang di minta soal
+
+
+
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        String soal = sc.next();
+
+        switch (soal) {
+
+            case "Soal1": {
+                int a = sc.nextInt();
+                int b = sc.nextInt();
+                int sum = a + b;
+
+                if ((a > 0 && b > 0 && sum < 0) ||
+                    (a < 0 && b < 0 && sum > 0)) {
+                    System.out.println("OVERFLOW");
+                } else {
+                    System.out.println(sum);
+                }
+                break;
+            }
+
+            case "Soal2": {
+                double x = sc.nextDouble();
+                double y = sc.nextDouble();
+                float fsum = (float)x + (float)y;
+                double dsum = x + y;
+                double diff = Math.abs(fsum - dsum);
+                System.out.printf("%.6f\n", diff);
+                break;
+            }
+
+            case "Soal3": {
+                int N = sc.nextInt();
+                Integer a = N;
+                Integer b = a;
+                a = a + 1;
+                System.out.println("==: " + (a == b));
+                System.out.println("equals: " + a.equals(b));
+                break;
+            }
+
+            case "Soal4": {
+                String S = sc.next();
+                String a = S;
+                String b = new String(S);
+                a = a + "X";
+                System.out.println("==: " + (a == b));
+                System.out.println("equals: " + a.equals(b));
+                break;
+            }
+
+            case "Soal5": {
+                String iStr = sc.next();
+                String dStr = sc.next();
+                String bStr = sc.next();
+
+                int i = Integer.parseInt(iStr);
+                double d = Double.parseDouble(dStr);
+                boolean flag = Boolean.parseBoolean(bStr);
+
+                double result = i * d;
+                if (!flag) result *= -1;
+
+                System.out.printf("%.2f\n", result);
+                break;
+            }
+        }
+
+        sc.close();
+    }
+}
+
+
+
+
+
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        String soal = sc.next();
+
+        switch (soal) {
+
+            case "Soal1": {
+                int a = sc.nextInt();
+                int b = sc.nextInt();
+                int sum = a + b;
+
+                if ((a > 0 && b > 0 && sum < 0) ||
+                    (a < 0 && b < 0 && sum > 0)) {
+                    System.out.println("OVERFLOW");
+                } else {
+                    System.out.println(sum);
+                }
+                break;
+            }
+
+            case "Soal2": {
+    String xs = sc.next();
+    String ys = sc.next();
+
+    float xf = Float.parseFloat(xs);
+    float yf = Float.parseFloat(ys);
+
+    double xd = Double.parseDouble(xs);
+    double yd = Double.parseDouble(ys);
+
+    float fsum = xf + yf;
+    double dsum = xd + yd;
+
+    double diff = Math.abs(dsum - fsum);
+    System.out.printf("%.6f\n", diff);
+    break;
+}
+
+            case "Soal3": {
+                int N = sc.nextInt();
+                Integer a = N;
+                Integer b = a;
+                a = a + 1;
+                System.out.println("==: " + (a == b));
+                System.out.println("equals: " + a.equals(b));
+                break;
+            }
+
+            case "Soal4": {
+                String S = sc.next();
+                String a = S;
+                String b = new String(S);
+                a = a + "X";
+                System.out.println("==: " + (a == b));
+                System.out.println("equals: " + a.equals(b));
+                break;
+            }
+
+            case "Soal5": {
+                String iStr = sc.next();
+                String dStr = sc.next();
+                String bStr = sc.next();
+
+                int i = Integer.parseInt(iStr);
+                double d = Double.parseDouble(dStr);
+                boolean flag = Boolean.parseBoolean(bStr);
+
+                double result = i * d;
+                if (!flag) result *= -1;
+
+                System.out.printf("%.2f\n", result);
+                break;
+            }
+        }
+
+        sc.close();
+    }
+}
+
+
+
+
+
+3. masih salah outputnya
+
+Contoh Input
+Soal2 1234567.89 0.11
+
+Contoh Output
+0.015625
+
+
+
+
+
+Soal 2 — Float vs Double Precision Trap!
+Deskripsi
+
+Baca dua bilangan desimal.
+
+Jumlahkan keduanya menggunakan float
+
+Jumlahkan keduanya menggunakan double
+
+Hitung selisih absolut dari kedua hasil tersebut
+
+Output harus ditampilkan dengan 6 digit di belakang koma.
+
+Input
+Soal2 x y
+
+Contoh Input
+Soal2 0.1 0.2
+
+Contoh Output
+0.000000
+
+Contoh Input
+Soal2 1234567.89 0.11
+
+Contoh Output
+0.015625
+
+
+
+
+output contoh yang ke 2 ga pas
+
+// Source code is decompiled from a .class file using FernFlower decompiler (from Intellij IDEA).
+import java.io.PrintStream;
+import java.util.Scanner;
+
+public class Main {
+   public Main() {
+   }
+
+   public static void main(String[] var0) {
+      Scanner var1 = new Scanner(System.in);
+      String var5;
+      String var6;
+      String var7;
+      double var12;
+      PrintStream var10000;
+      boolean var10001;
+      int var18;
+      switch (var1.next()) {
+         case "Soal1":
+            var18 = var1.nextInt();
+            int var20 = var1.nextInt();
+            int var23 = var18 + var20;
+            if ((var18 <= 0 || var20 <= 0 || var23 >= 0) && (var18 >= 0 || var20 >= 0 || var23 <= 0)) {
+               System.out.println(var23);
+            } else {
+               System.out.println("OVERFLOW");
+            }
+            break;
+         case "Soal2":
+            var5 = var1.next();
+            var6 = var1.next();
+            float var22 = Float.parseFloat(var5);
+            float var24 = Float.parseFloat(var6);
+            float var25 = var22 + var24;
+            double var10 = Double.parseDouble(var5);
+            var12 = Double.parseDouble(var6);
+            double var14 = var10 + var12;
+            double var16 = Math.abs(var14 - (double)var25);
+            System.out.printf("%.6f\n", var16);
+            break;
+         case "Soal3":
+            var18 = var1.nextInt();
+            Integer var19 = var18;
+            Integer var21 = var19;
+            var19 = var19 + 1;
+            System.out.println("==: " + (var19 == var21));
+            var10000 = System.out;
+            var10001 = var19.equals(var21);
+            var10000.println("equals: " + var10001);
+            break;
+         case "Soal4":
+            var5 = var1.next();
+            var7 = new String(var5);
+            var6 = var5 + "X";
+            System.out.println("==: " + (var6 == var7));
+            var10000 = System.out;
+            var10001 = var6.equals(var7);
+            var10000.println("equals: " + var10001);
+            break;
+         case "Soal5":
+            var5 = var1.next();
+            var6 = var1.next();
+            var7 = var1.next();
+            int var8 = Integer.parseInt(var5);
+            double var9 = Double.parseDouble(var6);
+            boolean var11 = Boolean.parseBoolean(var7);
+            var12 = (double)var8 * var9;
+            if (!var11) {
+               var12 *= -1.0;
+            }
+
+            System.out.printf("%.2f\n", var12);
+      }
+
+      var1.close();
+   }
+}
+
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        String soal = sc.next();
+
+        switch (soal) {
+
+            case "Soal1": {
+                int a = sc.nextInt();
+                int b = sc.nextInt();
+                int sum = a + b;
+
+                if ((a > 0 && b > 0 && sum < 0) ||
+                    (a < 0 && b < 0 && sum > 0)) {
+                    System.out.println("OVERFLOW");
+                } else {
+                    System.out.println(sum);
+                }
+                break;
+            }
+
+    case "Soal2": {
+    String xs = sc.next();
+    String ys = sc.next();
+
+    float xf = Float.parseFloat(xs);
+    float yf = Float.parseFloat(ys);
+    float fsum = xf + yf;
+
+    double xd = Double.parseDouble(xs);
+    double yd = Double.parseDouble(ys);
+    double dsum = xd + yd;
+
+    double diff = Math.abs(dsum - (double)fsum);
+    System.out.printf("%.6f\n", diff);
+    break;
+}
+
+
+            case "Soal3": {
+                int N = sc.nextInt();
+                Integer a = N;
+                Integer b = a;
+                a = a + 1;
+                System.out.println("==: " + (a == b));
+                System.out.println("equals: " + a.equals(b));
+                break;
+            }
+
+            case "Soal4": {
+                String S = sc.next();
+                String a = S;
+                String b = new String(S);
+                a = a + "X";
+                System.out.println("==: " + (a == b));
+                System.out.println("equals: " + a.equals(b));
+                break;
+            }
+
+            case "Soal5": {
+                String iStr = sc.next();
+                String dStr = sc.next();
+                String bStr = sc.next();
+
+                int i = Integer.parseInt(iStr);
+                double d = Double.parseDouble(dStr);
+                boolean flag = Boolean.parseBoolean(bStr);
+
+                double result = i * d;
+                if (!flag) result *= -1;
+
+                System.out.printf("%.2f\n", result);
+                break;
+            }
+        }
+
+        sc.close();
+    }
+}
+
+
+
+
+
+4. C:\Users\ASUS\OneDrive\문서\GitHub\t01-data-types-pbo-2526-ge-LucasPardede\src>javac src/*.java -d bin
+Exception in thread "main" java.nio.file.InvalidPathException: Illegal char <*> at index 4: src/*.java
+        at java.base/sun.nio.fs.WindowsPathParser.normalize(WindowsPathParser.java:182)
+        at java.base/sun.nio.fs.WindowsPathParser.parse(WindowsPathParser.java:153)
+        at java.base/sun.nio.fs.WindowsPathParser.parse(WindowsPathParser.java:77)
+        at java.base/sun.nio.fs.WindowsPath.parse(WindowsPath.java:92)
+        at java.base/sun.nio.fs.WindowsFileSystem.getPath(WindowsFileSystem.java:229)
+        at java.base/java.nio.file.Path.of(Path.java:147)
+        at java.base/java.nio.file.Paths.get(Paths.java:69)
+        at jdk.compiler/com.sun.tools.javac.main.Option$37.process(Option.java:698)
+        at jdk.compiler/com.sun.tools.javac.main.Option.handleOption(Option.java:1093)
+        at jdk.compiler/com.sun.tools.javac.main.Arguments.doProcessArgs(Arguments.java:381)
+        at jdk.compiler/com.sun.tools.javac.main.Arguments.processArgs(Arguments.java:347)
+        at jdk.compiler/com.sun.tools.javac.main.Arguments.init(Arguments.java:193)
+        at jdk.compiler/com.sun.tools.javac.main.Main.compile(Main.java:229)
+        at jdk.compiler/com.sun.tools.javac.main.Main.compile(Main.java:170)
+        at jdk.compiler/com.sun.tools.javac.Main.compile(Main.java:57)
+        at jdk.compiler/com.sun.tools.javac.Main.main(Main.java:43)
+
+
+
+
+
+      5.  kekmana biar main class nya masuk ke bin
