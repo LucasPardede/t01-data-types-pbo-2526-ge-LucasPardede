@@ -1,3 +1,5 @@
+LUCAS PARDEDE - 12S24015
+
 1. BUATKAN CODE .JAVA DARI SOAL SOAL BERIKUT
 
 Soal 1 — Integer Overflow Detection! 
